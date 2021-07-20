@@ -13,6 +13,7 @@ module type S = sig
 
   val close : t -> unit
 
+  (* This [replay] function doesn't replay, it should't be named "replay". *)
   val replay : string -> op Seq.t
   (* [replay path] is the sequence of operations recorded in file [path] *)
 end

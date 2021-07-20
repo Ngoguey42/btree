@@ -14,9 +14,13 @@ module type Key = sig
   type t [@@deriving repr]
   (** The type for keys. *)
 
+
+  (* The behaviour of the [encode] and [decode] functions is also available through repr in a much
+     more efficent way (i.e. copyless). *)
   val encode : t -> string
   (** [encode] is an encoding function. The resultant encoded values must have size {!encoded_size}. *)
 
+  (* Same: https://mirage.github.io/repr/repr/Repr/Size/index.html *)
   val encoded_size : int
   (** [encoded_size] is the size of the result of {!encode}, expressed in number of bytes. *)
 

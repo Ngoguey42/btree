@@ -1,6 +1,6 @@
 include Btree_intf
 
-let ( // ) a b = a ^ "/" ^ b
+let ( // ) a b = a ^ "/" ^ b (* Use Filename library *)
 
 module Make (InKey : Input.Key) (InValue : Input.Value) (Size : Input.Size) :
   S with type key = InKey.t and type value = InValue.t = struct

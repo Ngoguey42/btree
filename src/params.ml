@@ -1,4 +1,8 @@
+
 module type S = sig
+  (* Having a documentation for each of these values, explaining what it does and how it relates to
+     the implementation details of btree would be a great addition. *)
+
   val fanout : int
 
   val version : int

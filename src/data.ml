@@ -2,12 +2,13 @@ module type K = sig
   type t [@@deriving repr]
   (** The type for keys. *)
 
+  (* Maybe you should rename those [input] occurences to [user] *)
   type input_key
 
   val size : int
 
   val min : t (* min key *)
-
+  (* What happens if someone pushes a key with t=min or t=max, is it defined? *)
   val max : t (* max key *)
 
   val of_input : input_key -> t
@@ -21,16 +22,18 @@ module type K = sig
 
   val compare : t -> t -> int
 
+  (* What's the difference between length and size? *)
   val length : t -> int
 
+  (* remove these 3? *)
   val common_prefix : t -> t -> t
-
   val sub : t -> off:int -> len:int -> t
-
   val concat : t -> t -> t
 
+  (* Maybe rename to [blit]? *)
   val set : marker:(unit -> unit) -> bytes -> off:int -> t -> unit
 
+  (* Maybe rename to [of_bytes]? *)
   val get : bytes -> off:int -> t
 
   val debug_dump : t -> string
